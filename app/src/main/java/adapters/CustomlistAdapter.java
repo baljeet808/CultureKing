@@ -25,7 +25,6 @@ public class CustomlistAdapter extends BaseAdapter {
 
     public CustomlistAdapter(Context context,ArrayList<SavedItemArrayclass> list)
     {
-        super();
         this.context = context;
         savedItemList=list;
     }

@@ -28,7 +28,7 @@ public class ImageLoader {
 
     public void LoadImageFromUrl(ImageView view,String url)
     {
-        Picasso.with(context).load("https://shoppie808.000webhostapp.com/shopieRES/"+url).placeholder(R.mipmap.ck_icon).error(R.mipmap.ck_icon).into(view, new com.squareup.picasso.Callback() {
+        Picasso.with(context).load("https://shoppie808.000webhostapp.com/CultureKingsRes/"+url).placeholder(R.mipmap.ck_icon).error(R.mipmap.ck_icon).into(view, new com.squareup.picasso.Callback() {
             @Override
             public void onSuccess() {
 

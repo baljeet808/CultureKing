@@ -57,6 +57,7 @@ public class ItemsAdapter {
                 items.gender = jsonObject.getString("gender");
                 items.category = jsonObject.getString("category");
                 items.imageName = jsonObject.getString("image");
+                items.description = jsonObject.getString("description");
                 list.add(items);
             }
           }

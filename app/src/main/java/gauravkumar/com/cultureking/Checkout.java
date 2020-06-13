@@ -56,7 +56,7 @@ public class Checkout extends AppCompatActivity {
         country = (TextView) findViewById(R.id.country_checkout);
         country.setText(SharedPreps.getStaticObject(Checkout.this).getCountry());
 
-        String sum = ItemsAdapter.getObject(Checkout.this).getCartTotalPrice();
+        final String sum = ItemsAdapter.getObject(Checkout.this).getCartTotalPrice();
         subtotal = (TextView) findViewById(R.id.subtotal_price);
         subtotal.setText("NZD $"+sum);
         total = (TextView) findViewById(R.id.total_price);
@@ -79,6 +79,7 @@ public class Checkout extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("UID", SharedPreps.getStaticObject(Checkout.this).getUID());
                 bundle.putString("orderNumber",orderNum);
+                bundle.putString("totalPrice",sum);
 
                 WebApiAdapter.getObject(Checkout.this).fireServerApi(9,bundle);
             }

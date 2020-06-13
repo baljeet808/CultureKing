@@ -3,6 +3,7 @@ package gauravkumar.com.cultureking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -19,7 +20,7 @@ public class ItemDetail extends AppCompatActivity {
 
     MainApplication mainApplication;
     ImageView itemImage,backButton;
-    TextView price,itemName,addToBagButton,colorr,sizes;
+    TextView price,itemName,addToBagButton,colorr,sizes,description;
     ItemArrayClass selectedItem;
     ProgressBar addCartLoadingBar;
 
@@ -33,6 +34,10 @@ public class ItemDetail extends AppCompatActivity {
         mainApplication.setCurrentActivity(this);
 
         selectedItem = mainApplication.getChoosenItem();
+
+        description = (TextView) findViewById(R.id.item_description);
+        description.setMovementMethod(new ScrollingMovementMethod());
+        description.setText(selectedItem.description);
 
         price = (TextView) findViewById(R.id.price_textview);
         price.setText("NZD $"+selectedItem.price);
@@ -54,7 +59,7 @@ public class ItemDetail extends AppCompatActivity {
         });
 
         itemName = (TextView) findViewById(R.id.item_name_detail);
-        itemName.setText(selectedItem.itemName);
+        itemName.setText(selectedItem.itemName.toUpperCase());
 
         addToBagButton = (TextView) findViewById(R.id.add_Button_textview);
         addToBagButton.setOnClickListener(new View.OnClickListener() {

@@ -24,6 +24,7 @@ import gauravkumar.com.cultureking.HomePage;
 import gauravkumar.com.cultureking.ItemDetail;
 import gauravkumar.com.cultureking.Login;
 import gauravkumar.com.cultureking.MainApplication;
+import gauravkumar.com.cultureking.Orders;
 import gauravkumar.com.cultureking.SavedItem;
 import gauravkumar.com.cultureking.SignUp;
 import gauravkumar.com.cultureking.UserDetail;
@@ -130,6 +131,7 @@ public class WebApiAdapter {
             {
                 map.put("UID",bundle.getString("UID"));
                 map.put("orderNumber",bundle.getString("orderNumber"));
+                map.put("totalPrice",bundle.getString("totalPrice"));
                 url="https://shoppie808.000webhostapp.com/CultureKings/placeOrder.php";
             }break;
             case 10 :
@@ -147,6 +149,12 @@ public class WebApiAdapter {
                 map.put("UID", SharedPreps.getStaticObject(con).getUID());
                 url = "https://shoppie808.000webhostapp.com/CultureKings/GetSavedItemIds.php";
             }break;
+            case 12 :
+            {
+                map.put("UID",SharedPreps.getStaticObject(con).getUID());
+                url = "https://shoppie808.000webhostapp.com/CultureKings/getOrders.php";
+            }
+            break;
         }
         performWebOperation();
 
@@ -230,6 +238,12 @@ public class WebApiAdapter {
              SavedItem item = (SavedItem)con;
              item.onResponse(response);
          }break;
+         case 12 :
+         {
+             Orders orders = (Orders) con;
+             orders.onResponseMethode(response);
+         }
+         break;
      }
     }
 
